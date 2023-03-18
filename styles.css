@@ -1,0 +1,240 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+a{
+
+    text-decoration: none;
+}
+
+
+
+
+header{
+    background-color: white;
+    box-shadow: 1.5px 1.5px 4px #b3b3b3;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding: 0 1em;
+    transition: all 600ms ease-in-out;
+    border: 1px solid red;
+}
+
+header img{
+    height: 47px;
+    width: auto;
+}
+
+header.transparente{
+    background-color: transparent;
+    box-shadow: none;
+}
+
+header nav a{
+    color: #67666e;
+    font-weight: normal;
+    margin-left: 1em;
+    transition: 300ms ease-in-out all;
+}
+
+header.transparente nav a{
+    color: rgba(09,09,09, 0.9);
+    position: relative;
+ 
+}
+
+header.transparente nav a::before{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: green;
+    position: absolute;
+    bottom: -5px;
+    transition: all .5s;
+ 
+}
+
+header.transparente nav a:hover::before{
+    width: 46%;
+}
+
+header nav a:hover{
+    color: green;
+}
+
+nav button{
+    background-color: green;
+    border: none;
+    color: #fff;
+    font-weight: normal;
+    margin-left: 1em;
+    transition: 300ms ease-in-out all;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+}
+nav button:hover{
+    transform: scale(0.9);
+}
+
+
+/**  BOTON BURGER    **/
+#burger{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    z-index: 10;
+    display: none;
+}
+
+#burger .barra{
+    width: 30px;
+    height: 2px;
+    margin: 6px;
+    background-color: #a97c50;
+    transition: all .4s ease-in-out;
+}
+#burger.abierto .barra{
+    background-color: white;
+}
+#burger.abierto .barra.superior{
+    transform: translateY(8px) rotateZ(45deg);
+}
+#burger.abierto .barra.media{
+    width: 0;
+}
+#burger.abierto .barra.inferior{
+    transform: translateY(-8px) rotateZ(-45deg);    
+}
+
+@media (max-width:550px) {
+    header nav{
+        display: none;
+    }
+    header{
+        justify-content: flex-end;
+    }
+    #burger{
+        display: block;
+    }
+    .menu{
+        z-index: 2;
+    }
+
+
+}
+
+
+
+
+/* menu lateral */
+.menu{
+    width: 250px;
+    height: 100vh;
+    background-color: #424242;
+    position: absolute;
+    top: 0;
+    left: -360px;
+    padding-top: 40px;
+    transition: all .5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.menu.abierto{
+    left: 0;
+}
+
+.menu img{
+    width: 100%;
+    padding: 29px;
+    cursor:pointer;
+    transition: all .5s;
+    transform: scale(1);
+}
+.menu img:hover{
+    transform: scale(0.9);
+}
+
+.menu nav{
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    padding: 40px 0;
+}
+
+.menu nav a{
+    width: 100%;
+    height: 55px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    font-size: 1.2rem;
+    color:rgba(255,255,255,0.75);
+    transition: all .5s;
+}
+.menu nav a:hover{
+    background-color: #333;
+}
+
+/* inoconos */
+.menu nav span{
+    width: 45px;
+    color: greenyellow;
+}
+
+
+
+/** div del footer del menu lateral * */
+ .menu .sociales{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+ } 
+
+ .menu .sociales a{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: greenyellow;
+    color: #000;
+    transition: all .5s;
+ }
+
+ .menu .sociales a:hover{
+    color: greenyellow;
+    background: transparent;
+    transform: scale(2);
+ }
+
+
+ .container-image{
+    height: calc(100vh + 60px);
+    width: 100%;
+ }
+ .container-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+ }
